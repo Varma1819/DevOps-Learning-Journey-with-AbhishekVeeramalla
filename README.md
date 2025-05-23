@@ -47,3 +47,66 @@ Today's focus was on understanding Virtual Machines (VMs) and how they are found
 - While less detailed for Azure in the video, the same principles of API-driven automation apply, with tools like Azure Resource Manager (ARM) templates being relevant.
 
 ##### Gained a solid understanding of what VMs are, why they are important, and the basic methods (manual and automated) for provisioning them on major cloud platforms like AWS and Azure. This is a critical building block for further DevOps learning.
+
+# DevOps with Abhishek Veeramalla - Day 3
+
+#### 23-05-2025
+
+Today's session was a deep dive into interacting with AWS services, particularly EC2 instances, using the AWS Command Line Interface (CLI) and various terminal tools.
+
+### Connecting to EC2 Instances
+
+- **AWS Management Console (UI)**: Revisited connecting to EC2 instances directly through the web console for quick access.
+- **Terminal (CLI/SSH)**: Focused on the more common and automatable method of connecting via SSH from a local terminal.
+  - Requires the EC2 instance's **public IP address** and the correct **username** (e.g., `ubuntu`).
+  - Authentication uses a **private key file (.pem)** specified with the `-i` flag (e.g., `ssh -i yourkey.pem ubuntu@public_ip`).
+  - Set proper file permissions using:  
+    ```bash
+    chmod 600 yourkey.pem
+    ```
+    to avoid "permission denied" errors.
+
+### Terminal Software
+
+- Discussed terminal options:
+  - `iTerm2` for macOS.
+  - `PuTTY`, `NoMachine`, and notably `MobaXterm` for Windows.
+- MobaXterm was highlighted for its **user-friendly interface** and **session management** features.
+
+### AWS CLI (Command Line Interface)
+
+- **Purpose**: A powerful tool to interact with and manage AWS services directly from the terminal.
+- **Installation & Verification**:
+  - Install via AWS docs.
+  - Verify using:
+    ```bash
+    aws --version
+    ```
+- **Configuration**:
+  - Use `aws configure` to set:
+    - Access Key ID
+    - Secret Access Key
+    - Default Region
+    - Output Format
+    - ![image](https://github.com/user-attachments/assets/4bae5cba-acd2-4507-afbf-bc70d0eac9c8)
+
+  - Access keys are created via the **IAM** section in the AWS Console.
+- **Basic Usage**:
+  - Example: List S3 buckets:
+    ```bash
+    aws s3 ls
+    ```
+
+- **Managing EC2 with CLI**:
+  - EC2 instances can be created and managed using:
+    ```bash
+    aws ec2 run-instances
+    ```
+  - Parameters are referenced from AWS documentation.
+
+### Brief Introduction to Other Automation Methods
+
+- **AWS CloudFormation**: Infrastructure as Code (IaC) service using templates.
+- **AWS API (Boto3 for Python)**: Programmatic interaction using Python SDK.
+
+##### Gained practical knowledge on connecting to EC2 instances via different methods and configuring AWS CLI. These are fundamental skills for automating AWS tasks and essential for any DevOps role in an AWS environment.
