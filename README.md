@@ -110,3 +110,85 @@ Today's session was a deep dive into interacting with AWS services, particularly
 - **AWS API (Boto3 for Python)**: Programmatic interaction using Python SDK.
 
 ##### Gained practical knowledge on connecting to EC2 instances via different methods and configuring AWS CLI. These are fundamental skills for automating AWS tasks and essential for any DevOps role in an AWS environment.
+
+# DevOps with Abhishek Veeramalla - Day 4
+
+#### 25-05-2025
+
+Today I focus on diving deep into **Linux fundamentals and Shell Scripting**, which are crucial for automation and efficient system management in DevOps.
+
+### 1. Linux Fundamentals ("Linux & Shell Scripting")
+
+#### What is an Operating System?
+- Learned that an OS, like Linux, acts as the intermediary between software applications and hardware (CPU, RAM, I/O).
+
+#### Why Linux is Popular in DevOps
+- **Free and Open Source**: No licensing costs.
+- **Secure**: Generally robust security, often not needing extra antivirus software.
+- **Fast and Efficient**: Ideal for production environments.
+
+#### Distributions
+- Understood that Linux has various versions like **Ubuntu**, **CentOS**, offering flexibility.
+
+#### Linux OS Architecture (Simplified)
+- **Kernel**: The core of the OS, managing hardware, memory, processes, and system calls.
+- **System Libraries**: Provide functions for user tasks, interfacing with the kernel.
+
+#### Introduction to Shell & Basic Commands
+- **Shell**: A command-line interface (CLI) to interact with the OS, with **Bash** being a popular choice.
+- Essential commands covered:
+  - `pwd`: Present working directory  
+  - `ls`, `ls -ltr`: List files/directories (long format, sorted by modified time)  
+  - `cd`, `cd ..`: Change directory, move up  
+  - `touch`: Create an empty file  
+  - `vi`: Text editor  
+    - Insert mode: `i`, Save & Quit: `Esc + :wq`  
+  - `cat`: Display file content  
+  - `mkdir`: Create a directory  
+  - `rm`, `rm -r`: Remove file or directory (recursively)  
+  - `free -m`: Memory usage  
+  - `nproc`: Number of CPUs  
+  - `df -h`: Disk space  
+  - `top`: System processes overview  
+
+---
+
+### 2. Shell Scripting for DevOps ("Shell Scripting for DevOps")
+
+#### What is Automation & Shell Scripting?
+- **Automation** aims to reduce manual tasks.  
+- **Shell scripting** in Linux helps automate routine activities on a Linux machine.
+
+#### Writing Your First Shell Script
+- **Shebang**: Importance of `#!/bin/bash` to define the script interpreter.  
+  - Discussed the difference with `#!/bin/sh`.
+- **echo**: Command used for printing output.
+- **Comments**: Use `#` for writing comments in scripts.
+
+#### File Permissions and Execution
+- **Understanding Permissions**: Owner, group, and others.
+- **chmod**: Used to grant execute permissions (e.g., `chmod 777 script.sh`)
+  - Permission values: Read (4), Write (2), Execute (1).
+  - ![Screenshot 2025-05-25 181731](https://github.com/user-attachments/assets/78f67ecc-10a6-44b0-b855-dc4b1c194ce0)
+
+- **Running Scripts**:
+  - `sh script.sh`
+  - `./script.sh`
+
+#### More Useful Commands & Concepts
+- `man`: Accessing manual pages for commands.
+- `history`: Viewing command history.
+- **Example Script**: Creating a directory, navigating into it, and creating files.
+- ![Screenshot 2025-05-25 191339](https://github.com/user-attachments/assets/a86c5b54-4a52-4aeb-af60-cc09369cb722)
+
+
+#### Role of Shell Scripting in DevOps
+- Automating:
+  - Infrastructure maintenance
+  - Configuration management
+  - Code management (e.g., Git interactions)
+- Monitoring node health (CPU, memory, processes) using:
+  - `top`, `nproc`, `free`
+  - Automating health checks via scripting
+
+Gained a **foundational understanding** of the Linux operating system, its architecture, and its importance in DevOps. Learned **essential command-line navigation and file manipulation**. Got introduced to the **power of shell scripting** for automating tasks—from simple file operations to complex system monitoring. This forms a **critical skill set for any DevOps professional**, laying the groundwork for advanced automation techniques and infrastructure management.
