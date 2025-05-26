@@ -192,3 +192,55 @@ Today I focus on diving deep into **Linux fundamentals and Shell Scripting**, wh
   - Automating health checks via scripting
 
 Gained a **foundational understanding** of the Linux operating system, its architecture, and its importance in DevOps. Learned **essential command-line navigation and file manipulation**. Got introduced to the **power of shell scripting** for automating tasks—from simple file operations to complex system monitoring. This forms a **critical skill set for any DevOps professional**, laying the groundwork for advanced automation techniques and infrastructure management.
+
+# DevOps with Abhishek Veeramalla - Day 5
+
+#### 26-05-2025
+
+Today, I continued my deep dive into **Shell Scripting for DevOps**, building on what I learned previously. This session focused on more advanced techniques and best practices to write robust and effective scripts.
+
+### 1. Shell Scripting Best Practices
+
+- **Script Metadata**: Adding author, date, purpose, and version info at the beginning using comments helps with script maintenance.
+- **Debugging with `set -x`**: Displays each command and its arguments as they are executed. Very useful during development.
+- **Error Handling**:
+  - `set -e`: Script exits immediately if any command fails.
+  - `set -o pipefail`: Ensures failure in any command within a pipeline causes the whole pipeline to fail.
+  - ![image](https://github.com/user-attachments/assets/6d82e4ff-817f-42dc-b10f-c5edb173ba90)
+
+
+### 2. Essential Linux Commands for DevOps Scenarios
+
+- `ps -ef` / `ps aux`: View all running processes.
+- ![Screenshot 2025-05-26 182433](https://github.com/user-attachments/assets/3978e687-a23e-4e05-aac8-9e47f5be248a)
+
+- `grep`: Filter command output (e.g., `ps -ef | grep Amazon`).
+- `|` (Pipe): Redirects output of one command to another.
+- ![Screenshot 2025-05-26 184835](https://github.com/user-attachments/assets/fe9dbc0f-37a5-4623-92cc-7846dd6f1765)
+
+- `awk`: Extract and format text (e.g., extract Process ID).
+- ![Screenshot 2025-05-26 184857](https://github.com/user-attachments/assets/f94db750-ad6f-45f6-8dad-ad9ee6ec4979)
+
+- `curl`: Transfer data from URLs or interact with APIs.
+- ![Screenshot 2025-05-26 191447](https://github.com/user-attachments/assets/e2b39965-44d6-4447-addf-f79e02e0fefd)
+
+- `wget`: Download files from URLs.
+- ![Screenshot 2025-05-26 192245](https://github.com/user-attachments/assets/8fdf8a2c-57f7-4196-920f-b6c7ac6640fb)
+- ![Screenshot 2025-05-26 193941](https://github.com/user-attachments/assets/679da6b6-8c55-40d2-b2f5-6d4312b01213)
+
+- `find`: Search for files and directories with conditions.
+- `sudo`: Run commands with elevated privileges.
+- `su`: Switch user accounts.
+
+### 3. Control Flow in Scripts
+
+- **Conditional Statements**: `if`, `else`, `fi` for making decisions.
+- **Loops**: `for`, `do`, `done` for iterating through items or commands.
+
+### 4. Handling Signals
+
+- **trap**: Intercept and handle signals like `SIGINT` (Ctrl+C) for cleanup tasks before exiting scripts.
+- **kill**: Send signals to processes, typically used to terminate a process by its PID (e.g., `kill <pid>`).
+- **killall**: Send signals to all processes matching a name, useful to terminate all instances of a program (e.g., `killall nginx`).
+
+Today's session emphasized writing **professional and resilient shell scripts**. Best practices like metadata, debugging with `set -x`, and strict error handling (`set -e`, `set -o pipefail`) greatly enhance script quality. Mastering key Linux utilities such as `grep`, `awk`, `curl`, and `find` has boosted my ability to automate real-world DevOps tasks. Control structures (`if`, `for`) and signal handling (`trap`) are crucial for scripting smarter, interactive, and safer workflows.
