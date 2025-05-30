@@ -357,13 +357,8 @@ Execute the script to audit a specific repository. Replace `Varma-Org` with your
 This command will run the audit and save its output to `report.txt`.
 
 **Expected Output (content of `report.txt`):**
+![image](https://github.com/user-attachments/assets/c2fb05a5-24c1-45f3-b8c4-7e3a6c6f0bc1)
 
-```text
-Checking GitHub access for Varma-Org/DLPAV on 2025-05-30
------------------------------------------------
-[OK] vasanthk77 is authorized with read access.
-[OK] Varma1819 is authorized with admin access.
-```
 
 ### Phase 5: Configure Gmail SMTP via Postfix
 
