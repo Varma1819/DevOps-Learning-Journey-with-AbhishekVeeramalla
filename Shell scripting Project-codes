@@ -1,0 +1,92 @@
+📁 github_audit.sh
+
+
+#!/bin/bash
+
+# Arguments check
+if [[ $# -ne 3 ]]; then
+  echo "Usage: $0 <org> <repo> <github_token>"
+  exit 1
+fi
+
+ORG=$1
+REPO=$2
+TOKEN=$3
+WHITELIST="whitelist.txt"
+
+DATE=$(date '+%Y-%m-%d')
+OUTPUT_FILE="github_audit_$DATE.log"
+exec > >(tee "$OUTPUT_FILE") 2>&1
+echo "Checking GitHub access for $ORG/$REPO on $DATE"
+echo "-----------------------------------------------"
+
+# === Whitelist Validation ===
+if [[ ! -f "$WHITELIST" ]]; then
+  echo "Whitelist file '$WHITELIST' not found!"
+  exit 1
+fi
+
+# === Load Whitelisted Users into an Array ===
+mapfile -t WHITELIST_USERS < "$WHITELIST"
+
+# === Function to Check Whitelist ===
+function is_whitelisted() {
+    local name=$1
+    for user in "${WHITELIST_USERS[@]}"; do
+        if [[ "$user" == "$name" ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+# === Fetch Collaborators (with Permissions) ===
+COLLABS=$(curl -s -H "Authorization: token $TOKEN" \
+  "https://api.github.com/repos/$ORG/$REPO/collaborators")
+
+# === Validate API Response ===
+if echo "$COLLABS" | jq -e 'type == "array"' >/dev/null; then
+  if [[ $(echo "$COLLABS" | jq length) -eq 0 ]]; then
+    echo "ℹ️ No collaborators found for $ORG/$REPO."
+    exit 0
+  fi
+
+  # === Loop Through Collaborators ===
+  echo "$COLLABS" | jq -c '.[]' | while read -r user; do
+    login=$(echo "$user" | jq -r '.login')
+    perms=$(echo "$user" | jq '.permissions')
+
+    # === Determine Access Level ===
+    if [[ $(echo "$perms" | jq '.admin') == true ]]; then
+      access="admin"
+    elif [[ $(echo "$perms" | jq '.maintain') == true ]]; then
+      access="maintain"
+    elif [[ $(echo "$perms" | jq '.push') == true ]]; then
+      access="write"
+    elif [[ $(echo "$perms" | jq '.triage') == true ]]; then
+      access="triage"
+    elif [[ $(echo "$perms" | jq '.pull') == true ]]; then
+      access="read"
+    else
+      access="unknown"
+    fi
+
+    # === Print Result ===
+    if is_whitelisted "$login"; then
+      echo "[OK] $login is authorized with $access access."
+    else
+      echo "[WARNING] $login is NOT in whitelist! Access level: $access"
+    fi
+  done
+else
+  MESSAGE=$(echo "$COLLABS" | jq -r '.message // empty')
+  echo "❌ Error fetching collaborators: $MESSAGE"
+  exit 1
+fi
+
+
+
+📁  whitelist.txt
+
+vasanthk77
+Varma1819
