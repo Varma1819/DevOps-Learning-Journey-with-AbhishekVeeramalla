@@ -249,7 +249,7 @@ Certainly! Here's the complete content you provided, formatted in Markdown for y
 
 ---
 
-# DevOps with Abhishek Veeramalla - Day 5 
+# DevOps with Abhishek Veeramalla - Day 6 
 ###### (Shell Scripting Project)
 #### 30-05-2025
 
@@ -425,8 +425,6 @@ Replace `your_email@gmail.com` with the email address where you want to receive 
 You should receive an email.
 ![Screenshot 2025-05-30 181105](https://github.com/user-attachments/assets/7ed80df8-a434-4bf2-b9e4-29414fbca82c)
 
-
-
 ### Phase 7: Automate with Cron
 
 Set up a cron job to run the audit script automatically.
@@ -466,3 +464,39 @@ Set up a cron job to run the audit script automatically.
    crontab -l
    ```
 
+# DevOps with Abhishek Veeramalla - Day 7
+#### 10-06-2025
+
+Today's session was all about getting a solid grip on Git and GitHub, which are the backbones of modern software development and collaboration. I learned why we need version control and how to start using these essential tools.
+
+## Key Learnings
+
+### What is a Version Control System (VCS)?
+I learned that a VCS is a system that helps solve two major problems in development: sharing code efficiently among team members and managing versions of the code over time. It allows us to track changes and revert to older, stable versions if something breaks, which is incredibly useful.
+
+### Centralized vs. Distributed VCS
+I now understand the difference between the two main types of version control:
+
+- **Centralized (like SVN):** Everyone connects to a single central server. The big risk here is that if the central server goes down, work stops for everyone. It's a single point of failure.
+- **Distributed (like Git):** This is the modern approach. Every developer has a complete copy (a fork) of the entire repository on their local machine. This means we can continue working even if the main server is offline. There's no single point of failure, which makes it much more resilient.
+
+### Git vs. GitHub
+This was a key clarification for me:
+
+- **Git** is the tool itself—the open-source, distributed version control system that we can install and run locally or on a server. It's the engine that does the tracking.
+- **GitHub** is a platform or service built on top of Git. It provides a user-friendly web interface and adds powerful features for collaboration, like issue tracking, pull requests for code reviews, and project management boards. Other platforms like GitLab and Bitbucket do similar things.
+
+## My First Steps with Git Commands
+
+I got hands-on with the basic Git lifecycle and commands:
+
+- `git init`: This is the first step to start a new repository. It creates a hidden `.git` folder where all the tracking information is stored.
+- `git status`: A command I'll be using a lot! It shows what's happening in the repository—which files are new, modified, or ready to be saved.
+- `git add <file>`: This stages a file, telling Git that I want to include its changes in the next official save point (commit).
+- `git commit -m "Your message here"`: This is the actual command to save the staged changes. It creates a snapshot (a new version) of the code with a descriptive message about what was changed.
+- `git diff`: Super useful for seeing the exact line-by-line changes I've made since my last commit.
+- `git log`: This shows the entire history of commits, so I can see who changed what and when.
+- `git reset --hard <commit-ID>`: A powerful command to turn back time and revert the entire project to a specific past version.
+- `git push`: The command used to send my local commits up to a remote repository like GitHub, sharing my changes with the team.
+
+I have a much clearer understanding of how critical version control is for any serious development project. I see that Git is the fundamental technology for tracking code changes, while GitHub is the collaborative platform that brings teams together. Practicing the basic commands gave me the confidence to start versioning my own projects and prepare for collaborating with others. This feels like a foundational skill for everything else to come in DevOps.
